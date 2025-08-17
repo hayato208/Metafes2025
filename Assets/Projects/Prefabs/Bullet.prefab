@@ -175,7 +175,7 @@ MonoBehaviour:
   interactTextGO: {fileID: 0}
   proximity: 2
   SynchronizePosition: 0
-  AllowCollisionOwnershipTransfer: 1
+  AllowCollisionOwnershipTransfer: 0
   Reliable: 0
   _syncMethod: 2
   serializedProgramAsset: {fileID: 11400000, guid: b95dfefd20ee1584da04d0ee34f9aecd,
