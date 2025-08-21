@@ -2,40 +2,38 @@
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
+using TMPro; // TextMeshPro 用
 
 public class GameManager : UdonSharpBehaviour
 {
-    public float startTime;
-    public float endTime;
-    public bool isRunning = false;
+    private float startTime;
+    private bool isRunning;
 
-    void Update()
-    {
-        if (isRunning)
-        {
-            float elapsed = Time.time - startTime;
-            // デバッグ用に表示（VRChatではUI Textで表示できる）
-            Debug.Log("Elapsed Time: " + elapsed.ToString("F2"));
-        }
-    }
+    public TextMeshPro timeText; // ワールド上の看板テキストに割り当て
 
     public void StartTimer()
     {
-        if (!isRunning)
+        startTime = Time.time;
+        isRunning = true;
+
+        if (timeText != null)
         {
-            startTime = Time.time;
-            isRunning = true;
-            Debug.Log("Timer Started!");
+            timeText.text = "計測中...";
         }
     }
 
     public void StopTimer()
     {
-        if (isRunning)
+        if (!isRunning) return;
+
+        isRunning = false;
+        float totalTime = Time.time - startTime;
+
+        if (timeText != null)
         {
-            endTime = Time.time;
-            isRunning = false;
-            Debug.Log("Timer Stopped! Total: " + (endTime - startTime).ToString("F2"));
+            timeText.text = $"クリアタイム: {totalTime:F2} 秒";
         }
+
+        Debug.Log($"クリアタイム: {totalTime:F2} 秒");
     }
 }
