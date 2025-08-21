@@ -12,15 +12,32 @@ public class Gun : UdonSharpBehaviour
     private float pickupCooldown = 0.2f; // 0.2秒だけ撃てない
     private float lastPickupTime = 0f;
     private VRCPlayerApi localPlayer;
+    private BoxCollider boxCollider;  // 銃のBoxCollider参照用
 
     void Start()
     {
         localPlayer = Networking.LocalPlayer;
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     public override void OnPickup()
     {
         lastPickupTime = Time.time;
+
+        // 銃を持ったらコライダー無効化
+        if (boxCollider != null)
+        {
+            boxCollider.enabled = false;
+        }
+    }
+
+    public override void OnDrop()
+    {
+        // 銃を放したらコライダー有効化
+        if (boxCollider != null)
+        {
+            boxCollider.enabled = true;
+        }
     }
 
     void Update()

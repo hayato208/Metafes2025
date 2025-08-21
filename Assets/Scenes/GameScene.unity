@@ -524,6 +524,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a4cbac80609d74f8c9b40c205ed9f6, type: 3}
+--- !u!1 &218024534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2348718469601989681, guid: 3416ba27932f57641967d43e368a7501,
+    type: 3}
+  m_PrefabInstance: {fileID: 5471494874029465215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &358170787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,12 +1888,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 1333943687758470296, guid: 69abe94eeb7d7d54e87fe695368ae685,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1968684743992788926, guid: 69abe94eeb7d7d54e87fe695368ae685,
         type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1968684743992788926, guid: 69abe94eeb7d7d54e87fe695368ae685,
         type: 3}
+    - target: {fileID: 4578919124408459478, guid: 69abe94eeb7d7d54e87fe695368ae685,
+        type: 3}
+      propertyPath: m_Name
+      value: bk_FirePoint
+      objectReference: {fileID: 0}
     - target: {fileID: 7395665751803595168, guid: 69abe94eeb7d7d54e87fe695368ae685,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2056,6 +2072,106 @@ MonoBehaviour:
   contentType: 1
   assetBundleUnityVersion: 
   fallbackStatus: 0
+--- !u!1001 &5471494874029465215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 368833739706499323, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: UseText
+      value: shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 368833739706499323, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: DisallowTheft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368833739706499323, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: InteractionText
+      value: GunPickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003605663995388436, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2003605663995388436, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+    - target: {fileID: 2348718469601989681, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_Name
+      value: usa_gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879098626829452937, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: startZone
+      value: 
+      objectReference: {fileID: 149534283}
+    - target: {fileID: 7879098626829452937, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7879098626829452937, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3416ba27932f57641967d43e368a7501, type: 3}
 --- !u!114 &7111575897785925491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2199,6 +2315,12 @@ MonoBehaviour:
     ID: 23
     SerializedTypeNames:
     - VRC.Udon.UdonBehaviour
+  - gameObject: {fileID: 218024534}
+    ID: 24
+    SerializedTypeNames:
+    - VRC.SDK3.Components.VRCPickup
+    - VRC.Udon.UdonBehaviour
+    - VRC.Udon.UdonBehaviour
   portraitCameraPositionOffset: {x: 0, y: 0, z: 0}
   portraitCameraRotationOffset: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   PlayerPersistence: []
@@ -2330,3 +2452,4 @@ SceneRoots:
   - {fileID: 149534281}
   - {fileID: 1898336682}
   - {fileID: 1391102968}
+  - {fileID: 5471494874029465215}
