@@ -12,7 +12,7 @@ public class Enemy : UdonSharpBehaviour
         if (bullet != null)
         {
             // 弾と自分を削除
-            Destroy(gameObject);  // 自分(敵)を消す
+            gameObject.SetActive(false);  // 自分(敵)を消す
             Destroy(other.gameObject);  // 弾を消す
         }
     }

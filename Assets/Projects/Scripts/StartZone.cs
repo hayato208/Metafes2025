@@ -8,6 +8,7 @@ public class StartZone : UdonSharpBehaviour
     public GameManager gameManager;
     private Collider zoneCollider;
     private Renderer zoneRenderer;
+    public EnemyManager enemyManager;
 
     void Start()
     {
@@ -33,5 +34,11 @@ public class StartZone : UdonSharpBehaviour
     public override void OnPlayerTriggerEnter(VRCPlayerApi player)
     {
         gameManager.StartTimer();
+
+        // スタートライン通過時に敵を復活
+        if (enemyManager != null)
+        {
+            enemyManager.RespawnEnemies();
+        }
     }
 }

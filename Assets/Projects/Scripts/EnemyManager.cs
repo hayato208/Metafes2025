@@ -14,7 +14,7 @@ public class EnemyManager : UdonSharpBehaviour
         // ★エネミーが存在していれば、すなわちStartLineを超えたタイミングでエネミーを召喚する、その数が1体以上であれば壁を出現する
         if (goalZone != null)
         {
-           // goalZone.SetActive(false);
+            // goalZone.SetActive(false);
         }
     }
 
@@ -38,28 +38,39 @@ public class EnemyManager : UdonSharpBehaviour
         }
     }
 
-    /*
-    ★エネミー消失時に発火させるために、Enemyに持たせるのがよいか？
-    public void OnEnemyDestroyed(GameObject enemy)
+    public void RespawnEnemies()
     {
-        // 配列から1体減った扱いにする
-        enemy.SetActive(false);
-
-        // 残っているかチェック
-        bool allGone = true;
-        foreach (GameObject e in enemies)
+        foreach (GameObject enemy in enemies)
         {
-            if (e != null && e.activeSelf)
+            if (enemy != null)
             {
-                allGone = false;
-                break;
+                enemy.SetActive(true);
             }
         }
 
-        if (allGone && goalZone != null)
+        /*
+        ★エネミー消失時に発火させるために、Enemyに持たせるのがよいか？
+        public void OnEnemyDestroyed(GameObject enemy)
         {
-            goalZone.SetActive(true); // ゴール解放
+            // 配列から1体減った扱いにする
+            enemy.SetActive(false);
+
+            // 残っているかチェック
+            bool allGone = true;
+            foreach (GameObject e in enemies)
+            {
+                if (e != null && e.activeSelf)
+                {
+                    allGone = false;
+                    break;
+                }
+            }
+
+            if (allGone && goalZone != null)
+            {
+                goalZone.SetActive(true); // ゴール解放
+            }
         }
+        */
     }
-    */
 }
