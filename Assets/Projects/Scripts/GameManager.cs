@@ -9,7 +9,12 @@ public class GameManager : UdonSharpBehaviour
     private float startTime;
     private bool isRunning;
 
-    public TextMeshPro timeText; // ワールド上の看板テキストに割り当て
+    public EnemyManager enemyManager;
+    public GameObject startWall;
+    public GameObject goalWall;
+
+    // ワールド上の看板テキストに割り当て
+    public TextMeshPro timeText; 
 
     public void StartTimer()
     {
@@ -22,18 +27,29 @@ public class GameManager : UdonSharpBehaviour
         }
     }
 
-    public void StopTimer()
+    public void OnStartZoneEntered(VRCPlayerApi player)
+    {
+        startWall.SetActive(false);
+        goalWall.SetActive(true);
+        enemyManager.ResetEnemies();
+
+        startTime = Time.time;
+        isRunning = true;
+    }
+
+    public void OnGoalZoneEntered(VRCPlayerApi player)
     {
         if (!isRunning) return;
 
-        isRunning = false;
         float totalTime = Time.time - startTime;
+
+        isRunning = false;
+        goalWall.SetActive(false);
+        startWall.SetActive(true);
 
         if (timeText != null)
         {
             timeText.text = $"クリアタイム: {totalTime:F2} 秒";
         }
-
-        Debug.Log($"クリアタイム: {totalTime:F2} 秒");
     }
 }

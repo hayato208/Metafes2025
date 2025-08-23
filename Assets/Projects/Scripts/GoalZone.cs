@@ -20,9 +20,14 @@ public class GoalZone : UdonSharpBehaviour
         if (col != null) col.isTrigger = true;
         if (rend != null) rend.enabled = false;
     }
+    public void ResetGoal()
+    {
+        if (col != null) col.isTrigger = false;
+        if (rend != null) rend.enabled = true;
+    }
 
     public override void OnPlayerTriggerEnter(VRCPlayerApi player)
     {
-        gameManager.StopTimer();
+        gameManager.OnGoalZoneEntered(player);
     }
 }

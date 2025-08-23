@@ -140,6 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
         type: 3}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 1391102967}
+    - target: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
+        type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
@@ -265,6 +270,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 95291606}
+  enemyManager: {fileID: 1391102967}
+  startWall: {fileID: 149534277}
+  goalWall: {fileID: 1898336676}
   timeText: {fileID: 282197025}
 --- !u!4 &95291608
 Transform:
@@ -1025,6 +1033,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
         type: 3}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 1391102967}
+    - target: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
+        type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
@@ -1714,6 +1727,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
         type: 3}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 1391102967}
+    - target: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
+        type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
@@ -1861,6 +1879,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
         type: 3}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 1391102967}
+    - target: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
+        type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
@@ -1993,6 +2016,7 @@ MonoBehaviour:
   - {fileID: 474113399}
   - {fileID: 494209518}
   goalZone: {fileID: 1898336684}
+  aliveCount: 0
 --- !u!4 &1391102968
 Transform:
   m_ObjectHideFlags: 0
@@ -2026,6 +2050,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
+        type: 3}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 1391102967}
     - target: {fileID: 3402918418507540491, guid: 16b3b4d2fc0ccae44b1da675985604c4,
         type: 3}
       propertyPath: serializationData.Prefab

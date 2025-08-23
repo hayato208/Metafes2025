@@ -5,6 +5,8 @@ using VRC.Udon;
 
 public class Enemy : UdonSharpBehaviour
 {
+    public EnemyManager enemyManager;
+
     void OnCollisionEnter(Collision other)
     {
         // 衝突相手に Bullet コンポーネントが付いているかチェック
@@ -12,8 +14,14 @@ public class Enemy : UdonSharpBehaviour
         if (bullet != null)
         {
             // 弾と自分を削除
-            gameObject.SetActive(false);  // 自分(敵)を消す
-            Destroy(other.gameObject);  // 弾を消す
+            gameObject.SetActive(false);
+            Destroy(other.gameObject);
+
+            // 敵マネージャーに通知
+            if (enemyManager != null)
+            {
+                enemyManager.OnEnemyDefeated(this);
+            }
         }
     }
 }

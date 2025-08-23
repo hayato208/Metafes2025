@@ -8,38 +8,23 @@ public class EnemyManager : UdonSharpBehaviour
     public GameObject[] enemies;     // ワールド上の全エネミーを登録
     public GoalZone goalZone;        // ゴールゾーン参照
 
-    void Start()
+    private int aliveCount;
+
+    public void OnEnemyDefeated(Enemy enemy)
     {
-        // 初期状態ではゴールを無効化
-        // ★エネミーが存在していれば、すなわちStartLineを超えたタイミングでエネミーを召喚する、その数が1体以上であれば壁を出現する
-        if (goalZone != null)
+        aliveCount--;
+
+        if (aliveCount <= 0 && goalZone != null)
         {
-            // goalZone.SetActive(false);
+            goalZone.Goal(); // ゴール解放
         }
     }
 
-    // ★デバッグ用の処理、実際はUpdeteでは回さない
-    void Update()
+    public void ResetEnemies()
     {
-        // 残っているかチェック
-        bool allGone = true;
-        foreach (GameObject e in enemies)
-        {
-            if (e != null && e.activeSelf)
-            {
-                allGone = false;
-                break;
-            }
-        }
 
-        if (allGone && goalZone != null)
-        {
-            goalZone.Goal();
-        }
-    }
+        aliveCount = enemies.Length;
 
-    public void RespawnEnemies()
-    {
         foreach (GameObject enemy in enemies)
         {
             if (enemy != null)
@@ -48,29 +33,10 @@ public class EnemyManager : UdonSharpBehaviour
             }
         }
 
-        /*
-        ★エネミー消失時に発火させるために、Enemyに持たせるのがよいか？
-        public void OnEnemyDestroyed(GameObject enemy)
+        // ゴールを閉じる
+        if (goalZone != null)
         {
-            // 配列から1体減った扱いにする
-            enemy.SetActive(false);
-
-            // 残っているかチェック
-            bool allGone = true;
-            foreach (GameObject e in enemies)
-            {
-                if (e != null && e.activeSelf)
-                {
-                    allGone = false;
-                    break;
-                }
-            }
-
-            if (allGone && goalZone != null)
-            {
-                goalZone.SetActive(true); // ゴール解放
-            }
+            goalZone.ResetGoal();
         }
-        */
     }
 }

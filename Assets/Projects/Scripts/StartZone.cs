@@ -30,15 +30,10 @@ public class StartZone : UdonSharpBehaviour
         if (zoneRenderer != null) zoneRenderer.enabled = true;
     }
 
-    // タイマースタート
+    // ゲームスタート
     public override void OnPlayerTriggerEnter(VRCPlayerApi player)
     {
-        gameManager.StartTimer();
 
-        // スタートライン通過時に敵を復活
-        if (enemyManager != null)
-        {
-            enemyManager.RespawnEnemies();
-        }
+        gameManager.OnStartZoneEntered(player);
     }
 }
