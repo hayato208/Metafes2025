@@ -8,6 +8,7 @@ public class EnemyManager : UdonSharpBehaviour
     public GameObject[] enemies;     // ワールド上の全エネミーを登録
     public GoalZone goalZone;        // ゴールゾーン参照
 
+    [SerializeField]
     private int aliveCount;
 
     public void OnEnemyDefeated(Enemy enemy)
