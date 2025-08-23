@@ -12,9 +12,10 @@ public class GameManager : UdonSharpBehaviour
     public EnemyManager enemyManager;
     public GameObject startWall;
     public GameObject goalWall;
+    public ScoreManager scoreManager;
 
-    // ワールド上の看板テキストに割り当て
-    public TextMeshPro timeText; 
+    [Header("毎回のクリアタイム表示")]
+    public TextMeshPro timeText;
 
     public void StartTimer()
     {
@@ -51,5 +52,8 @@ public class GameManager : UdonSharpBehaviour
         {
             timeText.text = $"クリアタイム: {totalTime:F2} 秒";
         }
+
+        // プレイヤーごとのハイスコアを記録
+        scoreManager.RecordTime(player, totalTime);
     }
 }
