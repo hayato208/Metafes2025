@@ -1,59 +1,69 @@
 ﻿using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
-using VRC.Udon;
-using TMPro; // TextMeshPro 用
+using TMPro;
 
 public class GameManager : UdonSharpBehaviour
 {
-    private float startTime;
-    private bool isRunning;
+    [SerializeField]
+    private float[] playerStartTimes; // プレイヤーごとの開始時間
+   // private bool[] isRunning;         // 計測中プレイヤーかどうか
+    private int maxPlayers = 80;      // VRChatの上限人数
 
     public EnemyManager enemyManager;
     public GameObject startWall;
     public GameObject goalWall;
-    public ScoreManager scoreManager;
 
-    [Header("毎回のクリアタイム表示")]
     public TextMeshPro timeText;
+    public ScoreManager scoreManager; // ハイスコア管理用
 
-    public void StartTimer()
+    void Start()
     {
-        startTime = Time.time;
-        isRunning = true;
-
-        if (timeText != null)
+        playerStartTimes = new float[maxPlayers];
+       // isRunning = new bool[maxPlayers];
+        for (int i = 0; i < maxPlayers; i++)
         {
-            timeText.text = "計測中...";
+            playerStartTimes[i] = -1f; // 未計測を -1 とする
+           // isRunning[i] = false;
         }
     }
 
     public void OnStartZoneEntered(VRCPlayerApi player)
     {
+        int id = player.playerId;
+        if (id < 0 || id >= maxPlayers) return;
+
+        playerStartTimes[id] = Time.time;
+       // isRunning[id] = true;
+
+        if (timeText != null)
+        {
+            timeText.text = $"{player.displayName} 計測開始！";
+        }
+
         startWall.SetActive(false);
         goalWall.SetActive(true);
         enemyManager.ResetEnemies();
-
-        startTime = Time.time;
-        isRunning = true;
     }
 
     public void OnGoalZoneEntered(VRCPlayerApi player)
     {
-        if (!isRunning) return;
+        int id = player.playerId;
+        if (id < 0 || id >= maxPlayers) return;
+       // if (!isRunning[id]) return; // 計測中でなければ無視
 
-        float totalTime = Time.time - startTime;
-
-        isRunning = false;
-        goalWall.SetActive(false);
-        startWall.SetActive(true);
+        float totalTime = Time.time - playerStartTimes[id];
+       // isRunning[id] = false;
 
         if (timeText != null)
         {
-            timeText.text = $"クリアタイム: {totalTime:F2} 秒";
+            timeText.text = $"{player.displayName} のクリアタイム: {totalTime:F2} 秒";
         }
 
-        // プレイヤーごとのハイスコアを記録
+        startWall.SetActive(true);
+        goalWall.SetActive(false);
+
+        // ハイスコア更新
         scoreManager.RecordTime(player, totalTime);
     }
 }
