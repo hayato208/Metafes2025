@@ -2,6 +2,7 @@
 using UnityEngine;
 using VRC.SDKBase;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : UdonSharpBehaviour
 {
@@ -16,6 +17,8 @@ public class GameManager : UdonSharpBehaviour
 
     public TextMeshPro timeText;
     public ScoreManager scoreManager; // ハイスコア管理用
+
+    public VRCDebugUI debugUI;
 
     void Start()
     {
@@ -38,6 +41,11 @@ public class GameManager : UdonSharpBehaviour
 
         if (timeText != null)
         {
+            Debug.Log("★DUI:プレイヤーID："+id);
+            Debug.Log(id+"★DUI:開始タイム：" + playerStartTimes[id]);
+            debugUI.Print(id + "★DUI:プレイヤーID：" + id.ToString());
+            debugUI.Print(id + "★DUI:開始タイム：" + playerStartTimes[id]);
+
             timeText.text = $"{player.displayName} 計測開始！";
         }
 
@@ -58,6 +66,10 @@ public class GameManager : UdonSharpBehaviour
         if (timeText != null)
         {
             timeText.text = $"{player.displayName} のクリアタイム: {totalTime:F2} 秒";
+            Debug.Log(id + "★DUI:Time.time：" +  Time.time);
+            Debug.Log(id + "★DUI:クリアタイム：" + totalTime);
+            debugUI.Print(id + "★DUI:Time.time：" + Time.time);
+            debugUI.Print(id + "★DUI:クリアタイム：" + totalTime);
         }
 
         startWall.SetActive(true);
