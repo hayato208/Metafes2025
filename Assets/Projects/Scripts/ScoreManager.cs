@@ -10,8 +10,8 @@ public class ScoreManager : UdonSharpBehaviour
     private int maxPlayers = 80;
 
     [Header("ランキング表示")]
-    public TextMeshPro playerNamesText; // 左列（プレイヤー名）
-    public TextMeshPro scoresText;      // 右列（スコア）
+    public TextMeshProUGUI playerNamesText; // 左列（プレイヤー名）
+    public TextMeshProUGUI scoresText;      // 右列（スコア）
 
     void Start()
     {
