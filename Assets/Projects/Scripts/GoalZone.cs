@@ -28,6 +28,8 @@ public class GoalZone : UdonSharpBehaviour
 
     public override void OnPlayerTriggerEnter(VRCPlayerApi player)
     {
+        if (!player.isLocal) return;
+
         gameManager.OnGoalZoneEntered(player);
     }
 }

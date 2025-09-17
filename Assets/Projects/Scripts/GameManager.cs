@@ -41,8 +41,6 @@ public class GameManager : UdonSharpBehaviour
 
         if (timeText != null)
         {
-            Debug.Log("★DUI:プレイヤーID："+id);
-            Debug.Log(id+"★DUI:開始タイム：" + playerStartTimes[id]);
             debugUI.Print(id + "★DUI:プレイヤーID：" + id.ToString());
             debugUI.Print(id + "★DUI:開始タイム：" + playerStartTimes[id]);
 
@@ -66,8 +64,6 @@ public class GameManager : UdonSharpBehaviour
         if (timeText != null)
         {
             timeText.text = $"{player.displayName} のクリアタイム: {totalTime:F2} 秒";
-            Debug.Log(id + "★DUI:Time.time：" +  Time.time);
-            Debug.Log(id + "★DUI:クリアタイム：" + totalTime);
             debugUI.Print(id + "★DUI:Time.time：" + Time.time);
             debugUI.Print(id + "★DUI:クリアタイム：" + totalTime);
         }

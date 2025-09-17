@@ -1360,7 +1360,7 @@ MonoBehaviour:
   SynchronizePosition: 0
   AllowCollisionOwnershipTransfer: 0
   Reliable: 0
-  _syncMethod: 2
+  _syncMethod: 3
   serializedProgramAsset: {fileID: 11400000, guid: 06ee4821b346c2244a13b6a5589d8d11,
     type: 2}
   programSource: {fileID: 11400000, guid: ac8deba44b8b96a4cbe45ff917c96ac5, type: 2}
@@ -4785,8 +4785,8 @@ MonoBehaviour:
   useAssignedLayers: 0
   DynamicPrefabs: []
   DynamicMaterials:
-  - {fileID: 2100000, guid: a3b0f8174f377e64b82fd0526a7e5df7, type: 2}
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a3b0f8174f377e64b82fd0526a7e5df7, type: 2}
   - {fileID: 2377376760783321371, guid: e6102be8d593ac64c92a9ad2b2454dc1, type: 3}
   - {fileID: -8657442495611329697, guid: e6102be8d593ac64c92a9ad2b2454dc1, type: 3}
   - {fileID: -9130586711530211351, guid: e6102be8d593ac64c92a9ad2b2454dc1, type: 3}

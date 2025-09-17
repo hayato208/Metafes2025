@@ -33,7 +33,10 @@ public class StartZone : UdonSharpBehaviour
     // ゲームスタート
     public override void OnPlayerTriggerEnter(VRCPlayerApi player)
     {
+        // 自分自身でなければ無視
+        if (!player.isLocal) return;
 
+        // LocalPlayer がスタートゾーンに入った時だけ計測開始
         gameManager.OnStartZoneEntered(player);
     }
 }
