@@ -40,6 +40,7 @@ public class Gun : UdonSharpBehaviour
         }
     }
 
+    /*
     void Update()
     {
         // 銃をプレイヤーが持っている時だけ入力を受け付ける
@@ -53,6 +54,23 @@ public class Gun : UdonSharpBehaviour
         {
             Fire();
         }
+    }
+    */
+
+    /// <summary>
+    /// 銃の射撃
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="args"></param>
+    public override void InputUse(bool value, VRC.Udon.Common.UdonInputEventArgs args)
+    {
+        if (!value) return; // ボタン押下時のみ
+        if (localPlayer == null || !IsHeldByLocalPlayer()) return;
+
+        // クールダウン中は撃てない
+        if (Time.time - lastPickupTime < pickupCooldown) return;
+
+        Fire();
     }
 
     private bool IsHeldByLocalPlayer()
