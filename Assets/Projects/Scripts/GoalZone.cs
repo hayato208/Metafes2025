@@ -11,10 +11,13 @@ public class GoalZone : UdonSharpBehaviour
 
     void Start()
     {
+        //★これいらなくない？？
         col = GetComponent<BoxCollider>();
         rend = GetComponent<Renderer>();
     }
 
+    /*
+     * ★enemyManager分離前の残骸、多分消せる
     public void Goal()
     {
         if (col != null) col.isTrigger = true;
@@ -25,6 +28,7 @@ public class GoalZone : UdonSharpBehaviour
         if (col != null) col.isTrigger = false;
         if (rend != null) rend.enabled = true;
     }
+    */
 
     public override void OnPlayerTriggerEnter(VRCPlayerApi player)
     {

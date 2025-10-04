@@ -6,7 +6,7 @@ using VRC.Udon;
 public class EnemyManager : UdonSharpBehaviour
 {
     public GameObject[] enemies;     // ワールド上の全エネミーを登録
-    public GoalZone goalZone;        // ゴールゾーン参照
+    public ProgressGate progressGate;        // ゴールゾーン参照
 
     [SerializeField]
     private int aliveCount;
@@ -15,9 +15,9 @@ public class EnemyManager : UdonSharpBehaviour
     {
         aliveCount--;
 
-        if (aliveCount <= 0 && goalZone != null)
+        if (aliveCount <= 0 && progressGate != null)
         {
-            goalZone.Goal(); // ゴール解放
+            progressGate.Open();
         }
     }
 
@@ -34,10 +34,9 @@ public class EnemyManager : UdonSharpBehaviour
             }
         }
 
-        // ゴールを閉じる
-        if (goalZone != null)
+        if (progressGate != null)
         {
-            goalZone.ResetGoal();
+            progressGate.Close();
         }
     }
 }

@@ -49,7 +49,11 @@ public class GameManager : UdonSharpBehaviour
 
         startWall.SetActive(false);
         goalWall.SetActive(true);
-        enemyManager.ResetEnemies();
+        //★これまでEnemyManagerは1つだけだったので、スタート時にリセットをかけていた。
+        //中間ポイント実装により各区画ごとにEnemyManager（仮）を持たせることになったので、
+        //ResetEnemies自体は区画ごとのEnemyManager（EnemyGroup？）に任せて
+        //通知のみを行うEnemyManagerを作るのがよさげ？？
+        //enemyManager.ResetEnemies();
     }
 
     public void OnGoalZoneEntered(VRCPlayerApi player)
