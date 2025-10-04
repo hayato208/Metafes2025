@@ -282,7 +282,9 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 95291606}
   playerStartTimes: []
-  enemyManager: {fileID: 0}
+  enemyManagers:
+  - {fileID: 1673451699}
+  - {fileID: 612822189}
   startWall: {fileID: 149534277}
   goalWall: {fileID: 1898336676}
   timeText: {fileID: 282197025}
@@ -558,7 +560,6 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 149534282}
   gameManager: {fileID: 95291607}
-  enemyManager: {fileID: 0}
 --- !u!1001 &179063488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6197,10 +6198,6 @@ MonoBehaviour:
     ID: 32
     SerializedTypeNames:
     - VRC.Udon.UdonBehaviour
-  - gameObject: {fileID: 0}
-    ID: 33
-    SerializedTypeNames:
-    - VRC.Udon.UdonBehaviour
   - gameObject: {fileID: 1460180324}
     ID: 34
     SerializedTypeNames:
@@ -6261,22 +6258,6 @@ MonoBehaviour:
     - VRC.Udon.UdonBehaviour
   - gameObject: {fileID: 1673451697}
     ID: 51
-    SerializedTypeNames:
-    - VRC.Udon.UdonBehaviour
-  - gameObject: {fileID: 0}
-    ID: 52
-    SerializedTypeNames:
-    - VRC.Udon.UdonBehaviour
-  - gameObject: {fileID: 0}
-    ID: 53
-    SerializedTypeNames:
-    - VRC.Udon.UdonBehaviour
-  - gameObject: {fileID: 0}
-    ID: 54
-    SerializedTypeNames:
-    - VRC.Udon.UdonBehaviour
-  - gameObject: {fileID: 0}
-    ID: 55
     SerializedTypeNames:
     - VRC.Udon.UdonBehaviour
   portraitCameraPositionOffset: {x: 0, y: 0, z: 0}

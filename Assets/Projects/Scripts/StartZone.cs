@@ -8,7 +8,6 @@ public class StartZone : UdonSharpBehaviour
     public GameManager gameManager;
     private Collider zoneCollider;
     private Renderer zoneRenderer;
-    public EnemyManager enemyManager;
 
     void Start()
     {

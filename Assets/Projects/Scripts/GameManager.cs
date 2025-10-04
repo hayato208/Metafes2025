@@ -11,7 +11,7 @@ public class GameManager : UdonSharpBehaviour
    // private bool[] isRunning;         // 計測中プレイヤーかどうか
     private int maxPlayers = 80;      // VRChatの上限人数
 
-    public EnemyManager enemyManager;
+    public EnemyManager[] enemyManagers;
     public GameObject startWall;
     public GameObject goalWall;
 
@@ -49,11 +49,11 @@ public class GameManager : UdonSharpBehaviour
 
         startWall.SetActive(false);
         goalWall.SetActive(true);
-        //★これまでEnemyManagerは1つだけだったので、スタート時にリセットをかけていた。
-        //中間ポイント実装により各区画ごとにEnemyManager（仮）を持たせることになったので、
-        //ResetEnemies自体は区画ごとのEnemyManager（EnemyGroup？）に任せて
-        //通知のみを行うEnemyManagerを作るのがよさげ？？
-        //enemyManager.ResetEnemies();
+        foreach (var manager in enemyManagers)
+        {
+            if (manager != null)
+                manager.ResetEnemies();
+        }
     }
 
     public void OnGoalZoneEntered(VRCPlayerApi player)
