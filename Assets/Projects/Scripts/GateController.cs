@@ -1,7 +1,7 @@
 ﻿using UdonSharp;
 using UnityEngine;
 
-public class ProgressGate : UdonSharpBehaviour
+public class GateController : UdonSharpBehaviour
 {
     [SerializeField] private GameObject gateObject; // 開閉対象のオブジェクト
 

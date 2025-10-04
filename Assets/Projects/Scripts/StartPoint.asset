@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
-  m_Name: StartZone
+  m_Name: StartPoint
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: 0398e74fdd996794390bdb737242fe38,
     type: 2}
   udonAssembly: 
   assemblyError: 
-  sourceCsScript: {fileID: 11500000, guid: b91c7e1a3c9c84449a37fe93004db26c, type: 3}
+  sourceCsScript: {fileID: 11500000, guid: 48c9c77025b6ee64d9fd86ab2f83e5f7, type: 3}
   scriptVersion: 2
   compiledVersion: 2
   behaviourSyncMode: 0
   hasInteractEvent: 0
-  scriptID: 2989571058494004902
+  scriptID: -1470498085469506202
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 

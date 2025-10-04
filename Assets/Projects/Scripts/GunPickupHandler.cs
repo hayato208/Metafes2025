@@ -5,7 +5,7 @@ using VRC.Udon;
 
 public class GunPickupHandler : UdonSharpBehaviour
 {
-    public StartZone startZone;
+    public StartPoint startZone;
 
     public override void OnPickup()
     {
