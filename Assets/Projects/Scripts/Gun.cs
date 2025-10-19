@@ -27,6 +27,21 @@ public class Gun : UdonSharpBehaviour
         pickup = GetComponent<VRC_Pickup>();
     }
 
+    void Update()
+    {
+        // 銃をプレイヤーが持っている時だけ入力を受け付ける
+        if (localPlayer == null || !IsHeldByLocalPlayer()) return;
+
+        // クールダウン中は撃てない
+        if (Time.time - lastPickupTime < pickupCooldown) return;
+
+        // デスクトップモード時の射撃
+        if (Input.GetMouseButtonDown(0))
+        {
+            Fire();
+        }
+    }
+
     public override void OnPickup()
     {
         lastPickupTime = Time.time;
@@ -37,10 +52,9 @@ public class Gun : UdonSharpBehaviour
         {
             currentHand = 0;
         }
-        else if(pickup.currentHand == VRC_Pickup.PickupHand.Right)
+        else if (pickup.currentHand == VRC_Pickup.PickupHand.Right)
         {
             // デスクトップモードもこちらの検出
-            // ★別途デスクトップモードを識別する処理を書く
             currentHand = 1;
         }
 
@@ -67,6 +81,12 @@ public class Gun : UdonSharpBehaviour
     /// <param name="args"></param>
     public override void InputUse(bool value, VRC.Udon.Common.UdonInputEventArgs args)
     {
+
+        // デスクトップモード時は早期リターン
+        if (!localPlayer.IsUserInVR())
+        {
+            return;
+        }
         // ★バグとしてInputUseがマウスクリックで2回動作するので、その対応は必要
         if (!value) return; // ボタン押下時のみ
         if (localPlayer == null || !IsHeldByLocalPlayer()) return;
