@@ -9295,6 +9295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2003605663995388436, guid: 3416ba27932f57641967d43e368a7501,
         type: 3}
+      propertyPath: bulletSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003605663995388436, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 894341627752645141, guid: 56627d5a62b73c04280ec77be61aa2d1,
@@ -9375,6 +9380,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5338014400715032749, guid: 3416ba27932f57641967d43e368a7501,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0823acbbe5a556440a49046a45eed2dc, type: 2}
     - target: {fileID: 7879098626829452937, guid: 3416ba27932f57641967d43e368a7501,
         type: 3}
       propertyPath: startZone

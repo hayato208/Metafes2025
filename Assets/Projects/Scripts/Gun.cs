@@ -10,6 +10,7 @@ public class Gun : UdonSharpBehaviour
     public float bulletSpeed = 20f;   // 弾速
 
     private float pickupCooldown = 0.2f; // 0.2秒だけ撃てない
+    private float pickupCooldown_desktop = 0.15f; // 0.15秒だけ撃てない、デスクトップは2丁できないのでVRより間隔短め
     private float lastPickupTime = 0f;
     private VRCPlayerApi localPlayer;
     private BoxCollider boxCollider;  // 銃のBoxCollider参照用
@@ -33,7 +34,7 @@ public class Gun : UdonSharpBehaviour
         if (localPlayer == null || !IsHeldByLocalPlayer()) return;
 
         // クールダウン中は撃てない
-        if (Time.time - lastPickupTime < pickupCooldown) return;
+        if (Time.time - lastPickupTime < pickupCooldown_desktop) return;
 
         // デスクトップモード時の射撃
         if (Input.GetMouseButtonDown(0))
