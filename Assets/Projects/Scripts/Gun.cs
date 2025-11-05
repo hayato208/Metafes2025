@@ -10,19 +10,54 @@ public class Gun : UdonSharpBehaviour
     public float bulletSpeed = 20f;   // 弾速
 
     private float pickupCooldown = 0.2f; // 0.2秒だけ撃てない
+    private float pickupCooldown_desktop = 0.15f; // 0.15秒だけ撃てない、デスクトップは2丁できないのでVRより間隔短め
     private float lastPickupTime = 0f;
     private VRCPlayerApi localPlayer;
     private BoxCollider boxCollider;  // 銃のBoxCollider参照用
+
+    private VRC_Pickup pickup;
+
+    // どちらの手で持っているかを記録する変数
+    [SerializeField]
+    private int currentHand = -1; // 0=左, 1=右, -1=未保持
 
     void Start()
     {
         localPlayer = Networking.LocalPlayer;
         boxCollider = GetComponent<BoxCollider>();
+        pickup = GetComponent<VRC_Pickup>();
+    }
+
+    void Update()
+    {
+        // 銃をプレイヤーが持っている時だけ入力を受け付ける
+        if (localPlayer == null || !IsHeldByLocalPlayer()) return;
+
+        // クールダウン中は撃てない
+        if (Time.time - lastPickupTime < pickupCooldown_desktop) return;
+
+        // デスクトップモード時の射撃
+        if (Input.GetMouseButtonDown(0))
+        {
+            Fire();
+        }
     }
 
     public override void OnPickup()
     {
         lastPickupTime = Time.time;
+
+
+        // どちらの手で持たれたか判定
+        if (pickup.currentHand == VRC_Pickup.PickupHand.Left)
+        {
+            currentHand = 0;
+        }
+        else if (pickup.currentHand == VRC_Pickup.PickupHand.Right)
+        {
+            // デスクトップモードもこちらの検出
+            currentHand = 1;
+        }
 
         // 銃を持ったらコライダー無効化
         if (boxCollider != null)
@@ -40,23 +75,6 @@ public class Gun : UdonSharpBehaviour
         }
     }
 
-    /*
-    void Update()
-    {
-        // 銃をプレイヤーが持っている時だけ入力を受け付ける
-        if (localPlayer == null || !IsHeldByLocalPlayer()) return;
-
-        // クールダウン中は撃てない
-        if (Time.time - lastPickupTime < pickupCooldown) return;
-
-        // 左クリック or VRトリガー
-        if (Input.GetMouseButtonDown(0))
-        {
-            Fire();
-        }
-    }
-    */
-
     /// <summary>
     /// 銃の射撃
     /// </summary>
@@ -64,8 +82,19 @@ public class Gun : UdonSharpBehaviour
     /// <param name="args"></param>
     public override void InputUse(bool value, VRC.Udon.Common.UdonInputEventArgs args)
     {
+
+        // デスクトップモード時は早期リターン
+        if (!localPlayer.IsUserInVR())
+        {
+            return;
+        }
+        // ★バグとしてInputUseがマウスクリックで2回動作するので、その対応は必要
         if (!value) return; // ボタン押下時のみ
         if (localPlayer == null || !IsHeldByLocalPlayer()) return;
+
+        // どちらの手のトリガー入力かチェック
+        if (currentHand == 0 && args.handType != VRC.Udon.Common.HandType.LEFT) return; // 左手専用
+        if (currentHand == 1 && args.handType != VRC.Udon.Common.HandType.RIGHT) return; // 右手専用
 
         // クールダウン中は撃てない
         if (Time.time - lastPickupTime < pickupCooldown) return;
