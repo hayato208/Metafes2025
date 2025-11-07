@@ -11,6 +11,9 @@ public class GameManager : UdonSharpBehaviour
     private int maxPlayers = 80;      // VRChatの上限人数
 
     public EnemyManager[] enemyManagers;
+    public GameObject startWall;
+    public GameObject goalWall;
+
     public TextMeshPro timeText;
     public ScoreManager scoreManager; // ハイスコア管理用
 
@@ -40,6 +43,8 @@ public class GameManager : UdonSharpBehaviour
             timeText.text = $"{player.displayName} 計測開始！";
         }
 
+        startWall.SetActive(false);
+        goalWall.SetActive(true);
         foreach (var manager in enemyManagers)
         {
             if (manager != null)
@@ -60,6 +65,9 @@ public class GameManager : UdonSharpBehaviour
             debugUI.Print(id + "★DUI:Time.time：" + Time.time);
             debugUI.Print(id + "★DUI:クリアタイム：" + totalTime);
         }
+
+        startWall.SetActive(true);
+        goalWall.SetActive(false);
 
         // ハイスコア更新
         scoreManager.RecordTime(player, totalTime);

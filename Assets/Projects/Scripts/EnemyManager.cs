@@ -6,7 +6,7 @@ using VRC.Udon;
 public class EnemyManager : UdonSharpBehaviour
 {
     public GameObject[] enemies;     // ワールド上の全エネミーを登録
-    public GateController[] gateControllers;        // 中間ポイントやゴール地点など
+    public GateController gateController;        // 中間ポイントやゴール地点など
 
     [SerializeField]
     private int aliveCount;
@@ -15,12 +15,9 @@ public class EnemyManager : UdonSharpBehaviour
     {
         aliveCount--;
 
-        if (aliveCount <= 0 && gateControllers != null)
+        if (aliveCount <= 0 && gateController != null)
         {
-            foreach (var gate in gateControllers)
-            {
-                gate.Open();
-            }
+            gateController.Open();
         }
     }
 
@@ -37,12 +34,9 @@ public class EnemyManager : UdonSharpBehaviour
             }
         }
 
-        if (gateControllers != null)
+        if (gateController != null)
         {
-            foreach (var gate in gateControllers)
-            {
-                gate.Close();
-            }
+            gateController.Close();
         }
     }
 }
