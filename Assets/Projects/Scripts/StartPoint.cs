@@ -6,18 +6,24 @@ using VRC.Udon;
 public class StartPoint : UdonSharpBehaviour
 {
     public GameManager gameManager;
-    public GateController gateController;        // 中間ポイントやゴール地点など
+    public GateController[] gateControllers;        // 中間ポイントやゴール地点など
 
     // 銃を持った時に呼ばれる
     public void OnGunPickup()
     {
-        gateController.Open();
+        foreach (var gate in gateControllers)
+        {
+            gate.Open();
+        }
     }
 
     // 銃を離した時に呼ばれる
     public void OnGunDrop()
     {
-        gateController.Close();
+        foreach (var gate in gateControllers)
+        {
+            gate.Close();
+        }
     }
 
     // ゲームスタート
