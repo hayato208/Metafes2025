@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Fantasy Skybox FREE/Cubemaps.meta
 guid: b40198e48fec1db4ba2bdbb96a9e1e9b
 folderAsset: yes
 DefaultImporter:
+========
+guid: 8b7c670349db73d4aa7626a771bdc024
+NativeFormatImporter:
+>>>>>>>> 251103_dev_開始前音声を流す:Assets/SerializedUdonPrograms/f78503b71ecd6f34bab041d6436f2a6d.asset.meta
   externalObjects: {}
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
