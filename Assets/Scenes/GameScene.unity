@@ -15321,7 +15321,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7879098626829452937, guid: 3416ba27932f57641967d43e368a7501,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2846551252998160045, guid: 3416ba27932f57641967d43e368a7501, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
@@ -16722,7 +16723,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7879098626829452937, guid: 3416ba27932f57641967d43e368a7501,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2846551252998160045, guid: 3416ba27932f57641967d43e368a7501, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
@@ -34524,7 +34526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchedFromSDKPipeline: 0
   completedSDKPipeline: 0
-  blueprintId: wrld_b42d63d6-2877-41ba-abe6-76c373a3dd9e
+  blueprintId: 
   contentType: 1
   assetBundleUnityVersion: 
   fallbackStatus: 0
@@ -35063,7 +35065,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7879098626829452937, guid: 3416ba27932f57641967d43e368a7501,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2846551252998160045, guid: 3416ba27932f57641967d43e368a7501, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3158012545197330059, guid: 3416ba27932f57641967d43e368a7501,
